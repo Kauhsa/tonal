@@ -16,7 +16,8 @@
     "format": "prettier --write packages/**/*.ts packages/**/package.json",
     "test": "jest --coverage",
     "lint": "tslint --fix --project tsconfig.json -t codeFrame 'packages/**/*.ts'",
-    "test:ci": "yarn format && yarn lint && yarn build:all && yarn test -- --no-cache"
+    "test:ci": "yarn format && yarn lint && yarn build:all && yarn test -- --no-cache",
+    "bundle": "yarn build && yarn rollup -c"
   },
   "prettier": {},
   "husky": {
@@ -59,6 +60,8 @@
     ]
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^9.0.1",
     "@types/jest": "^28.1.6",
     "@types/node": "^18.0.6",
     "esbuild": "^0.14.49",
@@ -70,6 +73,8 @@
     "lodash": "^4.17.15",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.0",
+    "rollup": "^2.0.0",
+    "rollup-plugin-dts": "^4.2.3",
     "ts-jest": "^28.0.7",
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
